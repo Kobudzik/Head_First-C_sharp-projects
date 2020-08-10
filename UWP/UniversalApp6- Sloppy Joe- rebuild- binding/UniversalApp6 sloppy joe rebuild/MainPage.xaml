@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="UniversalApp6_sloppy_joe_rebuild.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UniversalApp6_sloppy_joe_rebuild"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <local:MenuMaker x:Name="menuMaker"></local:MenuMaker>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel FocusVisualPrimaryBrush="Black" VerticalAlignment="Stretch" x:Name="pageLayoutStackPanel" DataContext="{StaticResource ResourceKey=menuMaker}">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,100,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel Height="100" Margin="20,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <TextBlock Text="Number of items" TextWrapping="Wrap" SelectionChanged="TextBlock_SelectionChanged" VerticalAlignment="Top" Margin="0,0,-2,0"/>
+                    <TextBox Text="{Binding NumberOfItems, Mode= TwoWay}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10,0,0" MinWidth="130"/>
+                </StackPanel>
+                <Button Content="Make a new menu" Margin="20,14.6,0,24.9" VerticalAlignment="Center" Click="Button_Click"/>
+            </StackPanel>
+            <ListView ItemsSource="{Binding Menu}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock> 
+                            <Run Text="{Binding Meat}" Foreground="Blue"/>
+                            <Run Text=" on "/>   
+                            <Run Text="{Binding Bread}" FontWeight="Light"/>
+                            <Run Text=" with "/>  
+                            <Run Text="{Binding Condiment}" Foreground="Red" FontWeight="ExtraBold"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,0,0,0">
+             <Run Text="This menu was generated on " />
+             <Run Text="{Binding GeneratedDate}"/>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

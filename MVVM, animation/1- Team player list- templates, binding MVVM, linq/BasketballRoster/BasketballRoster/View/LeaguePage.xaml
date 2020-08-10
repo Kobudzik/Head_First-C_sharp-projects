@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="BasketballRoster.View.LeaguePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BasketballRoster.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="using:BasketballRoster.View" 
+    xmlns:viewmodel="using:BasketballRoster.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <viewmodel:LeagueViewModel x:Name="LeagueViewModel"/>   <!-- prodpięcie LeagueViewModel -->
+        <x:String x:Key="AppName">Head First Basketball Conference</x:String>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" Margin="120,0,0,0" Grid.Row="1" DataContext="{StaticResource ResourceKey=LeagueViewModel}" ><!-- uzycie LeagueViewModel -->
+            <view:RosterControl DataContext="{Binding JimmysTeam}" Margin="0,0,20,0"/><!-- uzycie szablonu RosterControl -->
+            <view:RosterControl DataContext="{Binding BriansTeam}" Margin="0,0,20,0"/><!-- uzycie szablonu RosterControl  -->
+        </StackPanel>
+    </Grid>
+</Page>

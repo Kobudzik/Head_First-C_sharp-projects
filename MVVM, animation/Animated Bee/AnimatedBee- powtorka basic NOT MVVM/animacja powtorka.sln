@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animacja powtorka", "animacja powtorka\animacja powtorka.csproj", "{754B881A-602D-48C4-94FC-38DF492C207F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|ARM.ActiveCfg = Debug|ARM
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|ARM.Build.0 = Debug|ARM
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|ARM.Deploy.0 = Debug|ARM
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|ARM64.Build.0 = Debug|ARM64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|x64.ActiveCfg = Debug|x64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|x64.Build.0 = Debug|x64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|x64.Deploy.0 = Debug|x64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|x86.ActiveCfg = Debug|x86
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|x86.Build.0 = Debug|x86
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Debug|x86.Deploy.0 = Debug|x86
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|ARM.ActiveCfg = Release|ARM
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|ARM.Build.0 = Release|ARM
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|ARM.Deploy.0 = Release|ARM
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|ARM64.ActiveCfg = Release|ARM64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|ARM64.Build.0 = Release|ARM64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|ARM64.Deploy.0 = Release|ARM64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|x64.ActiveCfg = Release|x64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|x64.Build.0 = Release|x64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|x64.Deploy.0 = Release|x64
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|x86.ActiveCfg = Release|x86
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|x86.Build.0 = Release|x86
+		{754B881A-602D-48C4-94FC-38DF492C207F}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B2FD4A0-4EB7-49D4-B74C-99A651048512}
+	EndGlobalSection
+EndGlobal

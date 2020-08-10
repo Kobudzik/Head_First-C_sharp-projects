@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp2 dialog boxes", "WindowsFormsApp2 dialog boxes\WindowsFormsApp2 dialog boxes.csproj", "{B100F2F2-3662-4B8B-ABB6-602FF0704E55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B100F2F2-3662-4B8B-ABB6-602FF0704E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B100F2F2-3662-4B8B-ABB6-602FF0704E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B100F2F2-3662-4B8B-ABB6-602FF0704E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B100F2F2-3662-4B8B-ABB6-602FF0704E55}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C142D380-7940-4E6B-8C9B-2EEE5F1A7495}
+	EndGlobalSection
+EndGlobal

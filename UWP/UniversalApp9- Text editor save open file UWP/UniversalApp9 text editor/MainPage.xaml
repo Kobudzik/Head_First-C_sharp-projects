@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="UniversalApp9_text_editor.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UniversalApp9_text_editor"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Grid.Row="1" Margin="120,0,60,60">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="filename" Margin="10" Style="{StaticResource FlyoutPickerTitleTextBlockStyle}">        Untitled</TextBlock>
+        <Border Margin="10" Grid.Row="1">
+            <TextBox x:Name="text" AcceptsReturn="True"             ScrollViewer.VerticalScrollBarVisibility="Visible"              ScrollViewer.HorizontalScrollBarVisibility="Visible"             TextChanged="text_TextChanged" />
+        </Border>
+        
+    </Grid>
+    
+    <Page.BottomAppBar>
+        <AppBar x:Name="bottomAppBar" Padding="10,0,10,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <AppBarButton Icon="OpenFile" x:Name="openButton" Click="openButton_Click" Label="Open"></AppBarButton>
+                <AppBarButton Icon="Save" x:Name="saveButton" Click="saveButton_Click" Label="Save"   IsEnabled="false" ></AppBarButton>               
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+    
+</Page>

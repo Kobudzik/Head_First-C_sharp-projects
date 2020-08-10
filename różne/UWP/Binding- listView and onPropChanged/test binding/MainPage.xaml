@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="test_binding.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:test_binding"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid x:Name="GridPanel" >
+        <!--Enter Person Name Text-->
+        <TextBox HorizontalAlignment="Left" Margin="10,28,0,0" Text="Enter Person Name" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False"/>
+        <!--BOX for user input (Person name)-->
+        <TextBox HorizontalAlignment="Left" Margin="161,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Name="newPersonName" Width="129"/>
+        
+        <!--Add Person button-->
+        <Button Content="Add Person" Margin="320,28,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <!--Run on prop changed button-->
+        <Button Content="Run on prop changed" Margin="135,110,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+
+
+       
+
+
+       
+        <!--Persons list view
+        Auto refreshing!-->
+        <ListView ItemsSource="{Binding Persons}" Margin="473,28,472,417" RenderTransformOrigin="0.503,0.476" Width="555" Height="555" />
+        
+        
+
+        
+        
+        <!--just Date= Text-->
+        <TextBlock HorizontalAlignment="Left" Margin="26,294,0,0" Text="Date=" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
+        <!--Textblock for data binding
+        Event raise need to refresh!-->
+        <TextBlock HorizontalAlignment="Left" Margin="319,288,0,0" Text="{Binding GeneratedDate}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
+        
+        
+        <!--Just Number of People text-->
+        <TextBlock HorizontalAlignment="Left" Margin="18,231,0,0" Text="Number of People=" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        
+        
+        <!--Textblock for data binding
+        Event raise need to refresh!-->
+        <TextBlock HorizontalAlignment="Left" Margin="290,231,0,0" Text="{Binding NumberOfPeople}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+
+
+
+    </Grid>
+</Page>

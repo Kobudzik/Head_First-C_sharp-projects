@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WindowsFormsApp18_Bees
+{
+    class Queen:Bee
+    {
+
+        public Queen(Worker[] workers, double weightMg)
+            : base(weightMg)//tell C# that it needs to call the base class’s constructor every time the subclass is instantiated.
+        {
+            this.workers = workers;
+        }
+
+        private Worker[] workers;
+        private int shiftNumber=0;
+
+
+       public bool AssignWork(string job, int numberOfShifts)
+        {
+            for(int i=0;i<workers.Length;i++)//sprawdza kazdego workera
+            {
+                if (workers[i].DoThisJob(job, numberOfShifts))//czy moze wykonac prace
+                    return true;             
+            }
+            return false;
+        }
+
+        public string WorkTheNextShift()
+        {
+            double honeyConsumed = HoneyConsumptionRate();
+            shiftNumber++;
+            string report = "Report for shift #" + shiftNumber + "\r\n";
+
+            for (int i = 0; i < workers.Length; i++)//dla kazdego workera
+            {
+                honeyConsumed += workers[i].HoneyConsumptionRate();
+
+                if (workers[i].DidYouFinish()) //jesli skonczyl
+                    report += "Worker #" + (i + 1) + " finished the job\r\n";
+
+                if (String.IsNullOrEmpty(workers[i].CurrentJob))//jesli nie pracuje
+                    report += "Worker #" + (i + 1) + " is not working\r\n";
+
+                else if (workers[i].ShiftsLeft > 0)//jesli jeszcze pracuje
+                    report += "Worker #" + (i + 1) + " is doing ‘" + workers[i].CurrentJob + "’ for " + workers[i].ShiftsLeft + " more shifts\r\n";
+
+                else report += "Worker #" + (i + 1) + " will be done with ‘" + workers[i].CurrentJob + "’ after this shift\r\n";//jesli pracuje ostatni shift
+            }
+            report += "Total honey consumed: " + honeyConsumed + " units\r\n";
+
+            return report;
+        }
+    }
+}

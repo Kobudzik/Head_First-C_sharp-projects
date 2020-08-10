@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="App1universal3_GO_FISH_redesign.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:App1universal3_GO_FISH_redesign"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <local:Game x:Name="game"></local:Game>
+    </Page.Resources>
+
+
+    <Grid DataContext="{StaticResource ResourceKey=game}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <ScrollViewer Content="{Binding Books}" Margin="10,100,50,27" Background="#FFEEEEEE" Grid.Row="2" MinWidth="100" MinHeight="100" VerticalScrollMode="Enabled" HorizontalScrollMode="Disabled"/>
+        <ScrollViewer Content="{Binding GameProgress}" Margin="10,100,55,9" Background="#FFEEEEEE" Grid.Row="1"/>
+        <ListBox x:Name="cards"  ItemsSource="{Binding Hand}" IsEnabled="{Binding GameInProgress}" Margin="10,100,10,80" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" DoubleTapped="ListBox_DoubleTapped" 
+/>
+        <Button IsEnabled="{Binding GameInProgress}" Content="Ask for a Card&#xD;&#xA;" Margin="0,10,0,10" VerticalAlignment="Bottom" Height="38" Grid.Row="2" HorizontalAlignment="Center" Grid.Column="1" Click="Button_Click_1"/>
+        <StackPanel Margin="10,50,0,0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFD4BCBC" Padding="0,0,0,0" Grid.ColumnSpan="2">
+            <TextBox Text="{Binding PlayerName, Mode=TwoWay}" IsEnabled="{Binding GameNotStarted}" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" HorizontalAlignment="Stretch" VerticalAlignment="Center" UseLayoutRounding="True" MinWidth="199.7"/>
+            <Button Content="Start the Game!" IsEnabled="{Binding GameNotStarted}" RenderTransformOrigin="0.53,0.5" Margin="20,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Game Progress:" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource SubheaderTextBlockStyle}" Height="40"><Run Text="Your name"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Row="2"><Run Text="Books:"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionChanged="TextBlock_SelectionChanged" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Column="1" Grid.Row="1"><Run Text="Your hand:"/><LineBreak/><Run/></TextBlock>
+
+    </Grid>
+</Page>

@@ -1,0 +1,15 @@
+﻿<UserControl
+    x:Class="InvadersGame.View.BigStar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InvadersGame.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="10"
+    d:DesignWidth="10">
+
+    <Grid>
+        <Polygon x:Name="polygon" Points="5,0 4,4 0,5 4,6 5,10 6,6 10,5 6,4" Fill="Blue"> </Polygon>
+    </Grid>
+</UserControl>

@@ -1,0 +1,88 @@
+﻿<UserControl
+    x:Class="Stopwatch.View.AnalogStopwatch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Stopwatch.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodel="using:Stopwatch.ViewModel"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    
+    <UserControl.Resources>
+        <viewmodel:StopwatchViewModel x:Name="viewModel"/>
+        <viewmodel:BooleanNotConverter x:Key="notConverter"/>
+        <viewmodel:AngleConverter x:Key="angleConverter"/>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="baseGrid" DataContext="{StaticResource ResourceKey=viewModel}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse Width="300" Height="300" Stroke="Black" StrokeThickness="2">            <!-- face of the stopwatch. It has a black outline and a grayish gradient background.-->
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <CompositeTransform CenterY="0.5" CenterX="0.5" Rotation="45"/>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFB03F3F"/>
+                    <GradientStop Color="#FFE4CECE" Offset="1"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        
+        <Rectangle RenderTransformOrigin="0.5,0.5" Width="2" Height="150" Fill="Black">        <!-- second hand-->
+            
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform Angle="{Binding Seconds,                     Converter={StaticResource ResourceKey=angleConverter},                    ConverterParameter=Seconds}"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+            
+        </Rectangle>        
+        <Rectangle RenderTransformOrigin="0.5,0.5" Width="4" Height="100" Fill="Black">        <!-- minute hand.-->            
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-50"/>
+                    <RotateTransform Angle="{Binding Minutes,                     Converter={StaticResource ResourceKey=angleConverter},                    ConverterParameter=Minutes}"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>            
+        </Rectangle>
+        
+        <Rectangle RenderTransformOrigin="0.5,0.5" Width="1" Height="150" Fill="Yellow">            <!-- two yellow hands for lap time.-->
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform Angle="{Binding LapSeconds,                     Converter={StaticResource ResourceKey=angleConverter},                     ConverterParameter=Seconds}"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        
+        <Rectangle RenderTransformOrigin="0.5,0.5" Width="2" Height="100" Fill="Yellow">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-50"/>
+                    <RotateTransform Angle="{Binding LapMinutes,                     Converter={StaticResource ResourceKey=angleConverter},                    ConverterParameter=Minutes}"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Ellipse Width="10" Height="10" Fill="Black"/>    <!-- This draws an extra circle in the middle to cover up where the hands overlap. Since it’s at the bottom of the Grid, it’s drawn last and ends up on top-->
+        <StackPanel Orientation="Horizontal" Margin="65,55,5,5">
+            <AppBarButton Label="Start" Icon="Next"  IsEnabled="{Binding Running, Converter={StaticResource notConverter}}" Click="StartButton_Click">Start</AppBarButton>
+            <AppBarButton Label="Stop" Icon="Stop" IsEnabled="{Binding Running}" Click="StopButton_Click">Stop</AppBarButton>
+            <AppBarButton Label="Reset" Icon="Refresh" Click="ResetButton_Click">Reset</AppBarButton>
+            <AppBarButton Label="Lap" Icon="Go" IsEnabled="{Binding Running}" Click="LapButton_Click">Lap</AppBarButton>
+        </StackPanel>
+    </Grid>
+</UserControl>

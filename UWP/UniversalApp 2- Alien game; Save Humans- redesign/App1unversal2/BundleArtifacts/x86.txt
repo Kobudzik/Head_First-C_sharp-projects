@@ -1,0 +1,2 @@
+MainPackage=D:\Visual studio projects\book projects\10 rozdział\App1unversal2\App1unversal2\bin\x86\Debug\App1unversal2_1.0.0.0_x86_Debug.msix
+SymbolPackage=D:\Visual studio projects\book projects\10 rozdział\App1unversal2\App1unversal2\obj\x86\Debug\Symbols\App1unversal2_1.0.0.0_x86_Debug.appxsym

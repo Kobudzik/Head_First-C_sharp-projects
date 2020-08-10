@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="InvadersGame.View.InvadersGamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InvadersGame.View"
+    xmlns:view="using:InvadersGame.View" 
+    xmlns:viewmodelXAML="using:InvadersGame.ViewModel"   
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+        
+    SizeChanged="pageRoot_SizeChanged" 
+    ManipulationMode="TranslateX"
+    ManipulationDelta="pageRoot_ManipulationDelta"    
+    ManipulationCompleted="pageRoot_ManipulationCompleted" 
+    Tapped="pageRoot_Tapped"
+        
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+
+    <Page.Resources>
+        <viewmodelXAML:InvadersViewModel x:Name="InvadersViewModel"/>
+        <viewmodelXAML:BooleanVisibilityConverter x:Key="visibilityConverter"/>
+        <!-- prodpięcie LeagueViewModel -->
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource InvadersViewModel}">
+        <Button Content="Button" Height="42" Width="88" Background="#33FF3232" FocusVisualPrimaryBrush="Red" Foreground="#FFFF6C6C" Click="Button_Click" FocusVisualSecondaryBrush="#9900085D" BorderBrush="#FFFF3939" RequestedTheme="Light"/>
+        
+        <Border x:Name="playArea" BorderBrush="Blue" BorderThickness="2" CornerRadius="10" Background="Black"  Margin="5" Grid.Row="1" Loaded="playArea_Loaded">
+          <ItemsControl ItemsSource="{Binding Path=Sprites}" Margin="5">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Canvas Background="Black"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Border>
+
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1">
+            <TextBlock Text="{Binding Path=Score}" HorizontalAlignment="Right"/>
+            <GridView ItemsSource="{Binding Lives}" HorizontalAlignment="Right" Width="Auto" Height="50" SelectionMode="None">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="ms-appx:///Assets/player.png" Stretch="Fill" Height="15" Width="20"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </StackPanel>
+
+    </Grid>
+</Page>
